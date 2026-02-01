@@ -5,13 +5,13 @@ It allows patients to book appointments easily, doctors to manage schedules, and
 Features:
 -> Admin
  -Admin login
- -Add, edit, and delete doctors
+ -Add, edit, and block doctors
  -Manage doctor specializations
- -View and manage all appointments
+ -View all appointments
 
 -> Doctor
  -Doctor login
- -Update profile (image, experience, hospital, education)
+ -Update profile 
  -Set available days and time slots
  -View appointment requests
 

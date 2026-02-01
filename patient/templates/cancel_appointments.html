@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Cancel Appointment{% endblock %}
+     {% block css %}<link rel="stylesheet" href="{% static 'cancelappointment.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="cancel-container">
+    <h3>Cancel Appointment</h3>
+
+    <div class="details">
+        <p><span>Doctor:</span> {{ appointment.doctor.name }}</p>
+        <p><span>Date:</span> {{ appointment.appointment_date }}</p>
+        <p><span>Slot:</span> {{ appointment.time_slot }}</p>
+    </div>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="btn-group">
+            <button type="submit" class="btn-danger">Confirm Cancel</button>
+            <a href="{% url 'my_appointments' %}" class="btn-secondary">Back</a>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
+

@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Add Doctor{% endblock %}
+{% block css %} <link rel="stylesheet" href="{% static 'adminaddr.css' %}">{% endblock %}
+{% block content %}
+
+<div class="form-container">
+    <h2>Register Doctor</h2>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <label>Name</label>
+        <input type="text" name="name" required>
+
+        <label>Username</label>
+        <input type="text" name="username" required>
+
+        <label>Password</label>
+        <input type="password" name="password" required>
+
+        <label>Available Days</label>
+        <input type="text" name="available_days">
+
+        <label>Available Time</label>
+        <input type="text" name="available_time">
+
+        <button type="submit">Add Doctor</button>
+    </form>
+
+    <a href="{% url 'admin_dashboard' %}">Back</a>
+</div>
+
+{% endblock %}

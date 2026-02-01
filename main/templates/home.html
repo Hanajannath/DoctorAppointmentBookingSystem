@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MediFlow | Smarter Appointments</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'home.css' %}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-left">
+        <img src="{% static 'logo.png' %}" alt="MediFlow Logo">
+        <div class="brand">MediFlow</div>
+    </div>
+
+    <div class="nav-right">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'doctorspage' %}">Doctors</a>
+        <a href="{% url 'patientspage' %}">Patients</a>
+        <a href="{% url 'contact' %}">Contact</a>
+        <a href="{% url 'patient_login' %}" class="btn btn-outline">Login</a>
+
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1><span>Smarter</span> Appointments.<br>Better Care.</h1>
+    <p>
+        MediFlow helps patients book appointments effortlessly and enables doctors
+        to manage schedules with ease — no waiting, no confusion.
+    </p>
+
+    <div class="hero-buttons">
+        <a href="{% url 'view_doctors' %}" class="btn btn-primary">Book Appointment</a>
+        <a href="{% url 'about' %}" class="btn btn-outline">Learn more</a>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <h2>Why Choose MediFlow?</h2>
+
+    <div class="feature-grid">
+        <div class="feature-card">
+            <h3>Smart Scheduling</h3>
+            <p>Book appointments instantly with real-time slot availability.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>No Time Conflicts</h3>
+            <p>Automatic conflict prevention ensures smooth scheduling.</p>
+        </div>
+
+        <div class="feature-card">
+            <h3>Secure Access</h3>
+            <p>Separate secure dashboards for doctors and patients.</p>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+    <h2>Healthcare made simple</h2>
+    <p>Start managing appointments the smarter way.</p>
+    <a href="{% url 'patient_register' %}">Get Started</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 MediFlow. All rights reserved.
+    
+</footer>
+
+</body>
+</html>

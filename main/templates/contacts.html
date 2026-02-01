@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | MediFlow</title>
+
+    <link rel="stylesheet" href="{% static 'contact.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="nav-left">
+        <img src="{% static 'logo.png' %}" alt="MediFlow Logo" class="logo">
+        <span class="brand">MediFlow</span>
+    </div>
+
+    <div class="nav-right">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'about' %}">About</a>
+        <a href="{% url 'contact' %}" class="active">Contact</a>
+    </div>
+</nav>
+
+    <!-- Header -->
+    <header class="contact-header">
+        <h1>Contact Us</h1>
+        <p>We’re here to help you with your healthcare needs</p>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="contact-container">
+
+        <!-- Contact Info -->
+        <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <p>
+                Have questions about appointments, doctors, or using MediFlow?
+                Reach out to us anytime.
+            </p>
+
+            <div class="info-box">
+                <span>📧</span>
+                <div>
+                    <h4>Email</h4>
+                    <p>support@mediflow.com</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <span>📞</span>
+                <div>
+                    <h4>Phone</h4>
+                    <p>+91 9XXXXXXXXX</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <span>📍</span>
+                <div>
+                    <h4>Location</h4>
+                    <p>Kozhikode, Kerala, India</p>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <span>⏰</span>
+                <div>
+                    <h4>Working Hours</h4>
+                    <p>Mon – Sat | 9:00 AM – 6:00 PM</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <h2>Send Us a Message</h2>
+
+            <form method="POST" action="{% url 'send_message' %}">
+                 {% csrf_token %}
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email"  name= "email" placeholder="Email Address" required>
+                <textarea rows="5" name="message" placeholder="Your Message" required></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+
+            <p class="privacy-text">
+                We respect your privacy. Your information is safe with us.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- Learn More Section -->
+    <section class="learn-more-section">
+        <h2>Want to Know More About Us?</h2>
+        <p>
+            Learn how MediFlow helps patients and doctors connect seamlessly,
+            manage appointments efficiently, and improve healthcare experiences.
+        </p>
+        <a href="{% url 'about' %}" class="learn-more-btn">Learn More</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="contact-footer">
+        <p>© 2026 MediFlow. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>

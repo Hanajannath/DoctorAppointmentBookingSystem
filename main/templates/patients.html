@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Patients | MediFlow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'patientspage.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+    <div class="nav-left">
+        <img src="{% static 'logo.png' %}" alt="MediFlow Logo" class="logo">
+        <span class="brand">MediFlow</span>
+    </div>
+
+    <div class="nav-right">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'doctorspage' %}">Doctors</a>
+        <a href="{% url 'patientspage' %}"class="active">Patients</a>
+        <a href="{% url 'about' %}" >About</a>
+        <a href="{% url 'contact' %}">Contact</a>
+    </div>
+</nav>
+
+<section class="page-header">
+    <h1>For Patients</h1>
+    <p>Book care without waiting.</p>
+</section>
+
+<section class="steps">
+    <div class="step">
+        <h3>1. Choose a Doctor</h3>
+        <p>Browse available doctors easily.</p>
+    </div>
+
+    <div class="step">
+        <h3>2. Select Time Slot</h3>
+        <p>Only available slots are shown.</p>
+    </div>
+
+    <div class="step">
+        <h3>3. Confirm Appointment</h3>
+        <p>Get instant booking confirmation.</p>
+    </div>
+</section>
+
+<section class="cta">
+    <a href="{% url 'view_doctors' %}">Book Appointment</a>
+</section>
+
+</body>
+</html>

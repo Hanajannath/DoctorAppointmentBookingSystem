@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'dashboard.css' %}">{% endblock %}
+{% block content %}
+
+<div class="sidebar">
+    <h3>Admin Panel</h3>
+    <a href="{% url 'admin_add_doctor' %}">Register new doctor</a>
+    <a href="{% url 'manage_doctors' %}">Manage Doctors</a>
+    <a href="{% url 'view_patients' %}">View Patients</a>
+    <a href="{% url 'manage_appointments' %}">Appointments</a>
+    <a href="{% url 'specializations' %}">Specializations</a>
+    <a href="{% url 'admin_messages' %}"> Patients Messages </a>
+    <a href="{% url 'admin_logout' %}">Logout</a>
+</div>
+
+<div class="content">
+    <h2>Welcome Admin</h2>
+
+    <div class="cards">
+    <div class="card">Doctors: {{ doctor_count }}</div>
+    <div class="card">Patients: {{ patient_count }}</div>
+    <div class="card">Appointments: {{ appointment_count }}</div>
+</div>
+</div>
+
+
+{% endblock %}

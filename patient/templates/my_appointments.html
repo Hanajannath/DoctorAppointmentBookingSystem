@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}My Appointment{% endblock %}
+   {% block css %}  <link rel="stylesheet" href="{% static 'myappointment.css' %}">{% endblock %}
+{% block content %}
+    <div class="appointments-container">
+    <h2>Appointments</h2>
+    <div class="appointment-card">
+    {% for a in appointments %}
+ <div class="appointment-card">
+        <p><strong>Doctor:</strong> {{ a.doctor.name }}</p>
+        <p><strong>Date:</strong> {{ a.appointment_date }}</p>
+        <p><strong>Time:</strong> {{ a.time_slot }}</p>
+        <p class="status {{ a.status|lower }}">{{ a.status }}</p>
+
+{% if a.status == 'Pending' %}
+<a href="{% url 'cancel_appointment' a.id %}"class="cancel-btn">Cancel</a>
+{% endif %}
+<a href="{% url 'appointment_receipt' a.id %}" class="receipt-btn">
+     Download Receipt
+</a>
+
+</div>
+ {% empty %}
+    <p class="no-appointments">No appointments found.</p>
+{% endfor %}
+    </div>
+{% endblock %}

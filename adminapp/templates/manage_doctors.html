@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}manage doctors{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'manage.css' %}">{% endblock %}
+{% block content %}
+    <h2>Doctors</h2>
+<a href="{% url 'add_doctors' %}">Add Doctor</a>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Specialization</th>
+            <th>Available Days</th>
+            <th>Available Time</th>
+            <th>Image</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for d in doctors %}
+        <tr>
+            <td data-label="Name">{{ d.name }}</td>
+            <td data-label="Specialization">{% for spec in d.specializations.all %}
+        {{ spec.name }}{% if not forloop.last %}, {% endif %}
+    {% empty %}
+        <span>No specialization</span>
+    {% endfor %}</td>
+            <td data-label="Available Days">
+                {{ d.available_days|default:"Not Set" }}
+            </td>
+            <td data-label="Available Time">
+                {{ d.available_time|default:"Not Set" }}
+            </td>
+            <td data-label="Image">
+                {% if d.image %}
+                    <img src="{{ d.image.url }}">
+                {% else %}
+                    No Image
+                {% endif %}
+            </td>
+            <td data-label="Status">
+                {% if d.is_active %}
+                    <span class="active">Active</span>
+                {% else %}
+                    <span class="blocked">Blocked</span>
+                {% endif %}
+            </td>
+            <td data-label="Action">
+                <a href="{% url 'edit_doctor' d.id %}">Edit</a> |
+                <a href="{% url 'block_doctor' d.id %}">
+                    {% if d.is_active %} Block {% else %} Unblock {% endif %}
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

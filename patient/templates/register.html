@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Register{% endblock %}
+ {% block css %}    <link rel="stylesheet" href="{% static 'register.css' %}">{% endblock %}
+{% block content %}
+    <div class="register-container">
+ <h2>Patient Registration</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>Name</label><br>
+    {{ form.name }}<br><br>
+
+    <label>Age</label><br>
+    {{ form.age }}<br><br>
+
+    <label>Phone Number</label><br>
+    {{ form.phone }}<br><br>
+
+    <label>Password</label><br>
+    {{ form.password }}<br><br>
+
+    <button type="submit">Register</button>
+    <p class="login-link">
+    Already registered? 
+    <a href="{% url 'patient_login' %}">Login</a>
+</p>
+
+</form>
+</div>
+{% endblock %}

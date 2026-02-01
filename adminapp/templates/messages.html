@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+ Admin Messages{% endblock %}
+  {% block css %}  <link rel="stylesheet" href="{% static 'message.css' %}">{% endblock %}
+
+{% block content %}
+<h2>Contact Messages</h2>
+<div class="table-container">
+<table border="1" cellpadding="10">
+      
+    <tr>
+    <th data-label="Name">Name</th>
+    <th data-label="Email"> Email</th>
+    <th data-label="Date">Date</th>
+    <th data-label="Status">Status</th>
+        <th>Action</th>
+    </tr>
+
+  {% for msg in messages %}
+    <tr>
+        <td>{{ msg.name }}</td>
+        <td>{{ msg.email }}</td>
+        <td>{{ msg.created_at }}</td>
+        <td>
+            {% if msg.is_read %}
+                Read
+            {% else %}
+                Unread
+            {% endif %}
+        </td>
+        <td>
+            <a href="{% url 'message_detail' msg.id %}">View</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

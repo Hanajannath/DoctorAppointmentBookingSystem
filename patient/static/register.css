@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* PAGE BACKGROUND ONLY */
+body {
+    min-height: 100vh;
+    background: #f4f6f8;
+}
+
+/* CENTERING CONTAINER */
+.register-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 80px auto;   /* centers horizontally */
+}
+
+/* FORM CARD */
+form {
+    background: #ffffff;
+    padding: 30px 25px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* TITLE */
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+/* LABEL */
+label {
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 10px 12px;
+    margin-top: 6px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #2c3e50;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #2c3e50;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #1a252f;
+}
+
+/* LOGIN LINK */
+.login-link {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-link a {
+    color: #2c3e50;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+
+/* ===== EXTRA COMPACT MOBILE VIEW ===== */
+@media (max-width: 480px) {
+
+    .register-container {
+        max-width: 340px;   /* narrower form */
+        margin: 30px auto;
+    }
+
+    form {
+        padding: 20px 18px; /* reduce padding */
+    }
+
+    h2 {
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
+    input {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    button {
+        padding: 10px;
+        font-size: 14px;
+        margin-top: 16px;
+    }
+
+    .login-link {
+        font-size: 13px;
+        margin-top: 12px;
+    }
+}

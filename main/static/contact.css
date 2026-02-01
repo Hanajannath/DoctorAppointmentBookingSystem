@@ -1,0 +1,317 @@
+/* =====================
+   Global Reset
+===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #f4f6f8;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* =====================
+   NAVBAR
+===================== */
+.navbar {
+    width: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 24px;
+}
+
+/* LEFT */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    height: 46px;
+}
+
+.brand {
+    font-size: 26px;
+    font-weight: 600;
+    color: #2c3e50;
+    white-space: nowrap;
+}
+
+/* RIGHT */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.nav-right a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 6px 6px;
+    white-space: nowrap;
+}
+
+.nav-right a.active {
+    border-bottom: 2px solid #2c3e50;
+}
+
+/* =====================
+   Header
+===================== */
+.contact-header {
+    background: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.contact-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.contact-header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* =====================
+   Contact Container
+===================== */
+.contact-container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    display: flex;
+    gap: 40px;
+}
+
+/* =====================
+   Contact Info
+===================== */
+.contact-info {
+    flex: 1;
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.contact-info h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.info-box {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.info-box span {
+    font-size: 1.5rem;
+}
+
+.info-box h4 {
+    font-size: 1rem;
+    color: #2c3e50;
+}
+
+.info-box p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* =====================
+   Contact Form
+===================== */
+.contact-form {
+    flex: 1;
+    background: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+
+.contact-form h2 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 0.95rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #2c3e50;
+}
+
+.contact-form button {
+    background: #2c3e50;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.privacy-text {
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: 10px;
+}
+
+/* =====================
+   Learn More Section
+===================== */
+.learn-more-section {
+    background: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
+    margin-top: 60px;
+}
+
+.learn-more-section h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.learn-more-section p {
+    max-width: 600px;
+    margin: 0 auto 25px;
+    font-size: 0.95rem;
+}
+
+.learn-more-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #fff;
+    color: #2c3e50;
+    border-radius: 30px;
+    text-decoration: none;
+}
+
+/* =====================
+   Footer
+===================== */
+.contact-footer {
+    text-align: center;
+    padding: 25px;
+    background: #1f2d3a;
+    color: #ccc;
+    font-size: 0.85rem;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .contact-container {
+        flex-direction: column;
+    }
+}
+
+/* Mobile */
+@media (max-width: 576px) {
+
+    /* NAVBAR FIX */
+    .navbar {
+        padding: 10px 12px;
+    }
+
+    .brand {
+        font-size: 16px;
+    }
+
+    .logo {
+        height: 36px;
+    }
+
+    .nav-right {
+        gap: 8px;
+    }
+
+    .nav-right a {
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    /* HEADER */
+    .contact-header {
+        padding: 45px 15px;
+    }
+
+    .contact-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .contact-header p {
+        font-size: 0.9rem;
+    }
+
+    /* CARDS */
+    .contact-info,
+    .contact-form {
+        padding: 25px 18px;
+    }
+
+    .contact-info h2,
+    .contact-form h2 {
+        font-size: 1.2rem;
+    }
+
+    /* LEARN MORE */
+    .learn-more-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .learn-more-section p {
+        font-size: 0.85rem;
+    }
+}
+
+/* Extra Small Screens (≤ 360px / 342px) */
+@media (max-width: 360px) {
+    .nav-right a {
+        font-size: 11px;
+    }
+
+    .brand {
+        font-size: 15px;
+    }
+
+    .contact-header h1 {
+        font-size: 1.6rem;
+    }
+}

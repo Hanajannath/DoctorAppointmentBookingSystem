@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}message{% endblock %}
+{% block css %}<link rel="stylesheet" href="{% static 'message_detail.css' %}">{% endblock %}
+{% block content %}
+<div class="message-container">
+
+    <h2>Message from {{ message.name }}</h2>
+
+    <div class="message-meta">
+        <p><strong>Email:</strong> {{ message.email }}</p>
+        <p><strong>Sent:</strong> {{ message.created_at }}</p>
+    </div>
+
+    <hr>
+
+    <div class="message-body">
+        {{ message.message }}
+    </div>
+
+    <a href="{% url 'admin_messages' %}" class="back-link">← Back</a>
+
+</div>
+{% endblock %}

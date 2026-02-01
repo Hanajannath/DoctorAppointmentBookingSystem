@@ -1,0 +1,103 @@
+/* ===== PAGE WRAPPER FIX ===== */
+body {
+    background-color: #f5f7fa;
+    margin: 0;
+}
+
+/* ===== CENTER CONTAINER ===== */
+.appointment-container {
+    max-width: 420px;
+    margin: 80px auto;   /* centers horizontally */
+    background: #ffffff;
+    padding: 24px 26px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* ===== HEADING ===== */
+.appointment-container h2 {
+    text-align: center;
+    margin-bottom: 16px;
+    color: #1f3b5c;
+}
+
+/* ===== INFO TEXT ===== */
+.appointment-container .info {
+    font-size: 14px;
+    color: #4a6fa5;
+    margin-bottom: 18px;
+    line-height: 1.6;
+}
+
+/* ===== FORM ===== */
+.appointment-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.appointment-container label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* ===== INPUTS ===== */
+.appointment-container input,
+.appointment-container select {
+    padding: 10px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.appointment-container input:focus,
+.appointment-container select:focus {
+    border-color: #1f3b5c;
+}
+
+/* ===== ERROR ===== */
+.error {
+    color: #d9534f;
+    font-size: 13px;
+}
+
+/* ===== BUTTON ===== */
+.appointment-container button {
+    margin-top: 10px;
+    padding: 11px;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    background-color: #1f3b5c; /* MediFlow navy */
+    color: white;
+    cursor: pointer;
+}
+
+.appointment-container button:hover {
+    background-color: #16304a;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .appointment-container {
+        margin: 60px auto;
+        width: 90%;
+    }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+    .appointment-container {
+        margin: 40px auto;
+        padding: 20px;
+    }
+
+    .appointment-container h2 {
+        font-size: 18px;
+    }
+}

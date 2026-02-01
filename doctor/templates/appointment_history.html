@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Appointment History{% endblock %}
+  {% block css %}  <link rel="stylesheet" href="{% static 'appointmenthistory.css' %}">{% endblock %}
+{% block content %}
+<h2>Appointment History</h2>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>Patient</th>
+                <th>Date</th>
+                <th>Time Slot</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for a in appointments %}
+            <tr>
+                <td>{{ a.patient.name }}</td>
+                <td>{{ a.appointment_date }}</td>
+                <td>{{ a.time_slot }}</td>
+                <td>
+                    {% if a.status == 'Approved' %}
+                        <span class="status approved">Approved</span>
+                    {% elif a.status == 'Rejected' %}
+                        <span class="status rejected">Rejected</span>
+                    {% else %}
+                        {{ a.status }}
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="no-data">
+                    No appointment history found
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+

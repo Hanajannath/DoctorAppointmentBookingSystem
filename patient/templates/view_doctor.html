@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Doctors{% endblock %}
+   {% block css %} <link rel="stylesheet" href="{% static 'viewdoctor.css' %}">{% endblock %}
+{% block content %}
+<br><br>
+    <h2>Available Doctors</h2>
+
+<form method="get" class="filter-form">
+    <select name="specialization" >
+        <option value="">All Specializations</option>
+        {% for s in specializations %}
+            <option value="{{ s.id }}">{{ s.name }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Search</button>
+</form>
+<div class="doctors-container">
+
+
+{% for d in doctors %}
+ <div class="doctor-card">
+
+    {% if d.image %}
+        <img src="{{ d.image.url }}" width="100" height="100">
+    {% else %}
+        <p>No Image</p>
+    {% endif %}
+
+    <h3>{{ d.name }}</h3>
+    <p><b>Specializations:</b>
+    {% for s in d.specializations.all %}
+        {{ s.name }}{% if not forloop.last %}, {% endif %}
+    {% endfor %}
+</p>
+    <p><b>Experience:</b> {{ d.experience }} years</p>
+    <p><b>Hospital / Clinic:</b> {{ d.hospital }}</p>
+    <p><b>Education:</b> {{ d.education }}</p>
+
+    <p><b>Available Days:</b> {{ d.available_days }}</p>
+    <p><b>Available Time:</b> {{ d.available_time }}</p>
+
+    <a href="{% url 'book_appointment' d.id %}">Book Appointment</a>
+</div>
+{% empty %}
+<p  class="no-doctors">No doctors found</p>
+{% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Add{% endblock %}
+    {% block css %}<link rel="stylesheet" href="{% static 'add_doctor.css' %}">{% endblock %}
+{% block content %}
+<h2>Add Doctor</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label>Doctor Name</label><br>
+    <input type="text" name="name" placeholder="Enter doctor name" required><br>
+    <label>Specializations</label><br><br>
+    <div class="specialization-box">
+        {% for s in specializations %}
+            <label class="checkbox-item">
+                <input type="checkbox" name="specializations" value="{{ s.id }}">
+                {{ s.name }}
+            </label><br>
+        {% endfor %}
+    </div>
+    <br>
+     <label>Image</label>
+    <input type="file" name="image"><br><br>
+    <label>Available Days</label><br>
+<input type="text" name="available_days"
+       placeholder="Eg: Monday to Friday" required><br><br>
+
+<label>Available Time</label><br>
+<input type="text" name="available_time"
+       placeholder="Eg: 10:00 AM - 04:00 PM" required><br><br>
+    <button type="submit">Add Doctor</button>
+</form>
+
+<br>
+<a href="{% url 'manage_doctors' %}">Back</a>
+
+{% endblock %}

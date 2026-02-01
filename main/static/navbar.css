@@ -1,0 +1,155 @@
+/* ===== NAVBAR BASE ===== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 22px;
+    background-color: #2f4254; /* Hospital navy */
+    color: #fff;
+    width: 100vw;
+    margin: 0;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+}
+
+/* ===== LEFT SIDE ===== */
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.nav-left,
+.nav-right {
+    min-width: 0;
+}
+.logo {
+    height: 34px;
+}
+
+.brand {
+    font-size: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* ===== RIGHT SIDE ===== */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    white-space: nowrap;
+}
+
+/* ===== LINKS ===== */
+.nav-right a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 6px 8px;
+}
+
+.nav-right a:hover {
+    border-bottom: 2px solid #ffffff;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    text-decoration: none;
+    border: none;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;   /* ✅ prevents white gap */
+}
+
+.login-btn {
+    background-color: #ffffff;
+    color: #2f4254;
+}
+
+.logout-btn {
+    background-color: #6c757d;
+    color: #ffffff;
+}
+
+/* ================= RESPONSIVE (NO HAMBURGER) ================= */
+
+/* Tablets */
+@media (max-width: 992px) {
+    .navbar {
+        padding: 10px 16px;
+    }
+
+    .brand {
+        font-size: 18px;
+    }
+
+    .nav-right {
+        gap: 14px;
+    }
+
+    .nav-right a {
+        font-size: 14px;
+    }
+}
+
+/* Mobiles */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 8px 12px;
+    }
+
+    .logo {
+        height: 28px;
+    }
+
+    .brand {
+        font-size: 16px;
+    }
+
+    .nav-right {
+        gap: 10px;
+    }
+
+    .nav-right a {
+        font-size: 12px;
+        padding: 4px 6px;
+    }
+
+    .btn {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+}
+@media (max-width: 360px) {
+    .navbar {
+        padding: 6px 10px;
+    }
+
+    .logo {
+        height: 24px;
+    }
+
+    .brand {
+        font-size: 14px;
+    }
+
+    .nav-right {
+        gap: 6px;
+    }
+
+    .nav-right a {
+        font-size: 11px;
+        padding: 3px 4px;
+    }
+
+    .btn {
+        padding: 4px 8px;
+        font-size: 11px;
+    }
+}

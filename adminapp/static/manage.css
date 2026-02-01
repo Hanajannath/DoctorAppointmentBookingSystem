@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    
+}
+
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+
+a[href*="add"] {
+    display: inline-block;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    background-color: #97b9f0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+}
+
+
+th {
+    background-color: #2c3e50;
+    color: white;
+    padding: 10px;
+    
+}
+
+
+td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+td img {
+    width: 70px;
+    height: 70px;
+    border-radius: 6px;
+    object-fit: cover;
+}
+
+
+.active {
+    color: green;
+    font-weight: bold;
+}
+
+.blocked {
+    color: red;
+    font-weight: bold;
+}
+
+td a {
+    color: #0d6efd;
+    text-decoration: none;
+    
+}
+
+@media (max-width: 768px) {
+
+    table, thead, tbody, th, tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        background-color: white;
+    }
+
+    td {
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+        padding: 8px;
+    }
+
+    td::before {
+        content: attr(data-label);
+        font-weight: bold;
+        color: #333;
+    }
+
+    td img {
+        width: 60px;
+        height: 60px;
+    }
+}

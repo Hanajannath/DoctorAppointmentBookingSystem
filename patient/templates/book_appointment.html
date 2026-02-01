@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load dict_extras %}
+{% block title %}
+Book Appointment{% endblock %}
+  {% block css %}  <link rel="stylesheet" href="{% static 'bookappointment.css' %}">{% endblock %}
+{% block content %}
+    <div class="appointment-container">
+    <h2>Book Appointment</h2>
+
+    <p class="info">
+        <b>Doctor Available:</b> {{ doctor.available_days }} <br>
+        <b>Time:</b> {{ doctor.available_time }}  <br>
+    </p>
+
+    <form method="post" onsubmit="return validateDate()">
+        {% csrf_token %}
+
+        <label>Select Date</label>
+        <input type="date" name="date" id="date" required>
+
+        <label>Select Time Slot</label>
+       <select name="time_slot" required>
+            {% for value, label in doctor.appointment_set.model.SLOT_CHOICES %}
+                {% with count=booked_slots|get_item:value %}
+                     {% if count >= 8 %}
+                        <option value="{{ value }}" disabled>
+                            {{ label }} (Full)
+                        </option>
+                      {% else %}
+                        <option value="{{ value }}">
+                           {{ label }} {% if count %}({{ 8|add:"-count" }} seats left){% endif %}
+                       </option>
+                  {% endif %}
+                {% endwith %}
+            {% endfor %}
+        </select>
+
+        {% if error %}
+    <p class="error">{{ error }}</p>
+{% endif %}
+
+<p id="error-msg" class="error" style="display:none;"></p>
+
+        <button type="submit">Book Appointment</button>
+    </form>
+    
+</div>
+
+<script>
+function validateDate() {
+    const availableDays = "{{ doctor.available_days }}".toLowerCase();
+    const selectedDate = new Date(document.getElementById("date").value);
+    const dayName = selectedDate.toLocaleDateString('en-US', { weekday: 'long' }).toLowerCase();
+
+    if (!availableDays.includes(dayName)) {
+        const errorBox=document.getElementById("error-msg");
+         errorBox.innerText =
+            "Doctor is not available on selected day.";
+             errorBox.style.display = "block";
+        return false;
+    }
+    return true;
+}
+ const dateInput = document.getElementById("date");
+ const today = new Date().toISOString().split("T")[0];
+ dateInput.setAttribute("min", today);
+</script>
+
+{% endblock %}

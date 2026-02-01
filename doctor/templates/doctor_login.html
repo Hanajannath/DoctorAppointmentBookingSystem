@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+ {% block title %}Doctor Login{% endblock %}
+    {% block css %} <link rel="stylesheet" href="{% static 'drlogin.css' %}">{% endblock %}
+
+{% block content %}
+<div class="login-container">
+    <h2>Doctor Login</h2>
+
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+
+       <label for="username">Doctor Name</label>
+<input id="username" type="text" name="username" required>
+
+<label for="password">Password</label>
+<input id="password" type="password" name="password" required>
+
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+{% endblock %}

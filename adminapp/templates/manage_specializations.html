@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}specialization{% endblock %}
+    {% block css %}<link rel="stylesheet" href="{% static 'specializations.css' %}">{% endblock %}
+{% block content %}
+    <br><h2>Specializations</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Specialization name">
+    <button type="submit">Add</button>
+</form>
+
+<ul>
+{% for s in specializations %}
+    <li>{{ s.name }}
+        <a href="{% url 'delete_specialization' s.id %}"
+           onclick="return confirm('Are you sure you want to delete?')">
+            Delete
+        </a>
+    </li>
+{% empty %}
+    <li>No specializations added</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

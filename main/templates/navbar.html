@@ -1,0 +1,52 @@
+ {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    
+</head>
+<body>
+      {% load static %}
+<nav class="navbar">
+    <!-- LEFT -->
+    <div class="nav-left">
+        <img src="{% static 'no bglogo.png' %}" alt="MediFlow Logo" class="logo">
+        <span class="brand">MediFlow</span>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="nav-right">
+
+        <!-- Common -->
+        <a href="{% url 'home' %}">Home</a>
+        
+
+        <!-- ========== ADMIN ========== -->
+        {% if request.user.is_superuser %}
+            <a href="{% url 'admin_dashboard' %}">Dashboard</a>
+            <a href="{% url 'admin_logout' %}" class="btn logout-btn">Logout</a>
+
+        <!-- ========== DOCTOR ========== -->
+        {% elif request.user.is_authenticated and request.user.doctor %}
+            <a href="{% url 'doctordashboard' %}">Dashboard</a>
+            <a href="{% url 'doctor_logout' %}" class="btn logout-btn">Logout</a>
+
+        <!-- ========== PATIENT ========== -->
+        {% elif request.session.patient_id %}
+            <a href="{% url 'patient_dashboard' %}">Dashboard</a>
+           
+            
+            <a href="{% url 'patient_logout' %}" class="btn logout-btn">Logout</a>
+
+        <!-- ========== GUEST ========== -->
+        {% else %}
+            <a href="{% url 'patient_login' %}" class="btn login-btn">Login</a>
+        {% endif %}
+    </div>
+</nav>
+
+    
+</body>
+</html>

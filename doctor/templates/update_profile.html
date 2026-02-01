@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Update Profile{% endblock %}
+    
+    {% block css %}<link rel="stylesheet" href="{% static 'drprofile.css' %}">{% endblock %}
+{% block content %}
+<div class="profile-container">
+    <h2>Update Profile</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <!-- Doctor Name -->
+        <label>Doctor Name</label>
+        <input type="text" name="name" value="{{ doctor.name }}" required>
+
+        <!-- Available Days -->
+        <label>Available Days</label>
+        <input type="text" name="available_days"
+               placeholder="e.g. Monday, Wednesday, Friday"
+               value="{{ doctor.available_days }}" required>
+
+        <!-- Available Time -->
+        <label>Available Time</label>
+        <input type="text" name="available_time"
+               placeholder="e.g. 10:00 AM - 4:00 PM"
+               value="{{ doctor.available_time }}" required>
+
+        <!-- Specializations -->
+        <label>Specializations</label>
+        <div class="checkbox-group">
+            {% for s in specializations %}
+                <label class="checkbox-item">
+                    <input type="checkbox" name="specializations"
+                           value="{{ s.id }}"
+                           {% if s in doctor.specializations.all %}checked{% endif %}>
+                    {{ s.name }}
+                </label>
+            {% endfor %}
+        </div>
+
+        <!-- Profile Image -->
+        <label>Profile Image</label>
+        {% if doctor.image %}
+            <img src="{{ doctor.image.url }}" class="preview">
+        {% endif %}
+        <input type="file" name="image">
+
+        <!-- Buttons -->
+        <button type="submit">Update Profile</button>
+        <a href="{% url 'doctordashboard' %}" class="back-btn">Back</a>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}View patients{% endblock %}
+    {% block css %}<link rel="stylesheet" href="{% static 'patients.css' %}">{% endblock %}
+{% block content %}
+   <h2>Patients</h2>
+   <div class="table-container">
+<table border="1">
+<tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Phone</th>
+    <th>Status</th>
+    <th>Action</th>
+    
+</tr>
+{% for p in patients %}
+<tr>
+    <td>{{ p.name }}</td>
+    <td>{{p.age}}</td>
+    <td>{{p.phone}}</td>
+    <td>
+            {% if p.is_active %}
+                Active
+            {% else %}
+                Blocked
+            {% endif %}
+        </td>
+    <td>
+            <a href="{% url 'blockpatient' p.id %}">
+                    {% if p.is_active %} Block {% else %} Unblock {% endif %}
+                </a>
+           
+        </td>
+</tr>
+{% endfor %}
+</table>
+ </div>
+{% endblock %}

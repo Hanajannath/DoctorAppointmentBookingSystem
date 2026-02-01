@@ -1,0 +1,89 @@
+body {
+    background: #f5f7fa;
+    color: #2c3e50;
+}
+
+/* PAGE TITLE */
+h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    padding: 20px;
+}
+
+/* TABLE WRAPPER (IMPORTANT) */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    min-width: 700px; /* forces scroll on mobile */
+    border-collapse: collapse;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* HEADER */
+th {
+    background: #2c3e50;
+    color: #ffffff;
+    text-align: left;
+    padding: 14px;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+/* CELLS */
+td {
+    padding: 14px;
+    font-size: 14px;
+    border-bottom: 1px solid #e6e9ef;
+    white-space: nowrap;
+}
+
+/* ROW HOVER */
+tr:hover td {
+    background: #f2f5f9;
+}
+
+/* ACTION LINK */
+a {
+    color: #2c3e50;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid #2c3e50;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    background: #2c3e50;
+    color: #ffffff;
+}
+
+/* ===== MOBILE ONLY FONT ADJUST ===== */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 22px;
+    }
+
+    th,
+    td {
+        font-size: 13px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    th,
+    td {
+        font-size: 12px;
+        padding: 8px;
+    }
+}

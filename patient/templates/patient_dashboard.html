@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Patient Dashboard{% endblock %}
+    {% block css %}
+    <link rel="stylesheet" href="{% static 'patientdashboard.css' %}">{% endblock %}
+{% block content %}
+<div class="dashboard-container">
+    <h2>Welcome, {{ request.session.patient_name }}</h2>
+<div class="notification-box">
+    <h3>🔔 Notifications</h3>
+
+    {% if notifications %}
+        <ul>
+            {% for note in notifications %}
+                <li>
+                    {{ note.message }}
+                    <small>{{ note.created_at }}</small>
+                     <a href="{% url 'delete_notification' note.id %}"
+                       onclick="return confirm('Delete this notification?')">
+                        Delete
+                    </a>
+                    
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No new notifications</p>
+    {% endif %}
+</div>
+
+    <div class="card-container">
+
+        <a href="{% url 'view_doctors' %}" class="card">
+            <h3>View Doctors</h3>
+            <p>Browse doctors & specializations</p>
+        </a>
+
+        <a href="{% url 'my_appointments' %}" class="card">
+            <h3>My Appointments</h3>
+            <p>Check your booking status</p>
+        </a>
+
+        <a href="{% url 'patient_logout' %}" class="card logout">
+            <h3>Logout</h3>
+            <p>Exit your account safely</p>
+        </a>
+
+    </div>
+</div>
+
+{% endblock %}

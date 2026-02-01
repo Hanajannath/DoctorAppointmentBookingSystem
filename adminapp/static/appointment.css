@@ -1,0 +1,100 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+}
+
+/* Title */
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+/* TABLE WRAPPER (IMPORTANT) */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Table */
+table {
+    width: 100%;
+    min-width: 700px; /* force horizontal scroll */
+    border-collapse: collapse;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+table th {
+    background-color: #34495e;
+    color: #ffffff;
+    padding: 12px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+/* Cells */
+table td {
+    padding: 10px;
+    border-bottom: 1px solid #dddddd;
+    white-space: nowrap;
+}
+
+/* Zebra rows */
+table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Hover */
+table tr:hover {
+    background-color: #eaf2f8;
+}
+
+/* Status colors */
+.approved {
+    color: #2ecc71;
+    font-weight: 600;
+}
+
+.pending {
+    color: #f39c12;
+    font-weight: 600;
+}
+
+.cancelled {
+    color: #e74c3c;
+    font-weight: 600;
+}
+
+/* ===== MOBILE OPTIMIZATION ===== */
+@media (max-width: 768px) {
+
+    table {
+        min-width: 650px;
+    }
+
+    table th,
+    table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    table {
+        min-width: 600px;
+    }
+
+    table th,
+    table td {
+        font-size: 13px;
+        padding: 7px;
+    }
+}

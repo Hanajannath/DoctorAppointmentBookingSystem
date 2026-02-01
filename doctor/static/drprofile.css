@@ -1,0 +1,131 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* Page background */
+body {
+    min-height: 100vh;
+    background: #f4f6f8;  
+    align-items: center;
+}
+
+/* Main container */
+.profile-container {
+    margin: 80px auto;
+    background: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Heading */
+.profile-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Labels */
+.profile-container label {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Inputs */
+.profile-container input[type="text"],
+.profile-container input[type="file"] {
+    width: 100%;
+    margin-top: 6px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+/* Checkbox group */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Checkbox item */
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Custom checkbox color */
+.checkbox-item input[type="checkbox"] {
+    accent-color:  #2c3e50;
+    cursor: pointer;
+}
+
+/* Profile image preview */
+.preview {
+    display: block;
+    margin-top: 10px;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+}
+
+/* Buttons */
+.profile-container button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background: #2c3e50;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.profile-container button:hover {
+    background: #032d58;
+}
+
+/* Back button */
+.back-btn {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #007bff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.back-btn:hover {
+    text-decoration: underline;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+    .profile-container {
+        padding: 20px;
+        max-width: 350px;
+    }
+
+    .checkbox-group {
+        grid-template-columns: 1fr;
+    }
+}

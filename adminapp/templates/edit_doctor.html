@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Edit{% endblock %}
+   {% block css %} <link rel="stylesheet" href="{% static 'edit_doctor.css' %}">{% endblock %}
+{% block content %}
+<br>
+    <h2>Edit Doctor</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <label>Doctor Name</label><br>
+    <input type="text" name="name" value="{{ doctor.name }}" required><br><br>
+     <label>Experience (Years)</label><br>
+        <input type="number" name="experience" min="0"
+               value="{{ doctor.experience }}" required> <br><br>
+
+        <label>Hospital / Clinic</label><br>
+        <input type="text" name="hospital"
+               value="{{ doctor.hospital }}" required>
+
+        <label>Education / Degree</label><br>
+        <input type="text" name="education"
+               placeholder="e.g. MBBS, MD (Cardiology)"
+               value="{{ doctor.education }}" required>
+
+    <label>Specializations</label><br>
+    {% for s in specializations %}
+    <input type="checkbox"
+           name="specializations"
+           value="{{ s.id }}"
+           {% if s in doctor.specializations.all %}checked{% endif %}>
+    {{ s.name }} <br>
+{% endfor %} <br>
+  <label>Image</label>
+  {% if doctor.image %}
+            <img src="{{ doctor.image.url }}" class="preview">
+        {% endif %}
+    <input type="file" name="image"><br><br>
+    <label>Available Days</label><br>
+<input type="text" name="available_days"
+       value="{{ doctor.available_days }}" required><br><br>
+
+<label>Available Time</label><br>
+<input type="text" name="available_time"
+       value="{{ doctor.available_time }}" required><br><br>
+
+    <button type="submit">Update Doctor</button>
+</form>
+
+<br>
+<a href="{% url 'manage_doctors' %}">Back</a>
+
+{% endblock %}

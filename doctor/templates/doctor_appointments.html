@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Doctor Appointments{% endblock %}
+  {% block css %}  <link rel="stylesheet" href="{% static 'drappointment.css' %}">{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Pending Appointments</h2>
+
+    {% if appointments %}
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Patient</th>
+                    <th>Date</th>
+                    <th>Time Slot</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for a in appointments %}
+                <tr>
+                    <td>{{ a.patient.name }}</td>
+                    <td>{{ a.appointment_date }}</td>
+                    <td>{{ a.time_slot }}</td>
+                    <td class="pending">{{ a.status }}</td>
+                    <td>
+                        <a class="approve"
+                           href="{% url 'update_appointment_status' a.id 'Approved' %}">
+                           Approve
+                        </a>
+                        <a class="reject"
+                           href="{% url 'update_appointment_status' a.id 'Rejected' %}">
+                           Reject
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table></div>
+    {% else %}
+        <p class="empty">No pending appointments</p>
+    {% endif %}
+
+    <a href="{% url 'doctordashboard' %}" class="back-btn">Back to Dashboard</a>
+</div>
+
+{% endblock %}
